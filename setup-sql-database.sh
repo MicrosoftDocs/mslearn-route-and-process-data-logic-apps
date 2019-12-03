@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 RESOURCE_GROUP=$(az group list --query "[0].name" -o tsv)
 SQL_LOCATION=$(az group show --name "$RESOURCE_GROUP" --query location -o tsv)
-SQL_LOCATION=WESTUS
+SQL_LOCATION=EASTUS
 SQL_SERVERNAME="mslearn-exercise-sqlserver-$(openssl rand -hex 5)"
 SQL_PWD="Ab#1$(openssl rand -hex 10)"
 SQL_USERNAME=sqladmin
