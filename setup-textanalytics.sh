@@ -5,7 +5,7 @@ TA_LOCATION=$(shuf -n1 -e $(az cognitiveservices account list-skus --query "[?ti
 echo "Creating Text Analytics account..."
 az cognitiveservices account create --name "$TA_ACCT_NAME" --resource-group "$RESOURCE_GROUP" --kind TextAnalytics --sku F0 --location "$TA_LOCATION" --yes
 TA_KEY=$(az cognitiveservices account keys list --name $TA_ACCT_NAME --resource-group "$RESOURCE_GROUP" --query key1 -o tsv)
-TA_ENDPOINT=$(az cognitiveservices account show --name $TA_ACCT_NAME --resource-group "$RESOURCE_GROUP" --query endpoint -o tsv)
+TA_ENDPOINT=$(az cognitiveservices account show --name $TA_ACCT_NAME --resource-group "$RESOURCE_GROUP" --query properties.endpoint -o tsv)
 echo "Done!"
 echo
 echo "Make a note of the following values for use in the rest of this exercise:"
